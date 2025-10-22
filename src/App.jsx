@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "./components/Hero";
 import Activities from "./components/Activities";
 import Reservations from "./components/Reservations";
 import Footer from "./components/Footer";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
+import WelcomeScreen from "./components/WelcomeScreen";
 
 export default function App() {
+  const [showLanding, setShowLanding] = useState(false);
+
+  if (!showLanding) {
+    return (
+      <WelcomeScreen image="/fondo.png" onStart={() => setShowLanding(true)} />
+    );
+  }
+
   return (
     <div className="font-sans">
-      <header className="bg-[#e4d8cb] border-b border-black/10  w-full z-30">
+      <header className="bg-[#e4d8cb] border-b border-black/10 w-full z-30">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <img src="/logo2.png" alt="Isoró" className="w-40 mr-20" />
@@ -34,13 +43,13 @@ export default function App() {
               />
             </div>
             <button className="flex gap-3 bg-[#1c3e35] text-white font-semibold px-4 py-3 rounded-full">
-              <FaPhoneVolume className="mt-1.5 " /> Contacto
+              <FaPhoneVolume className="mt-1.5" /> Contacto
             </button>
           </div>
         </div>
       </header>
 
-      <main className="">
+      <main>
         <Hero />
         <Activities />
         <Reservations />
