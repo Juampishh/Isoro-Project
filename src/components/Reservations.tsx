@@ -1,10 +1,11 @@
+// Reservations.tsx
 import React from "react";
 
-export default function Reservations() {
+const Reservations: React.FC = () => {
   return (
     <section id="reservas" className="bg-[#e4d8cb] py-20">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        {/* Text Content */}
+        {/* Contenido de texto */}
         <div className="space-y-6">
           <div>
             <span className="inline-block px-3 py-1 bg-[#1D3B32]/10 text-[#1D3B32] text-sm font-semibold rounded-full mb-3">
@@ -21,22 +22,26 @@ export default function Reservations() {
           </p>
 
           <div className="space-y-3">
-            <div className="flex items-center space-x-3 text-gray-800">
-              <div className="w-2 h-2 bg-[#1D3B32] rounded-full"></div>
-              <span className="font-medium">Kayak guiado</span>
-            </div>
-            <div className="flex items-center space-x-3 text-gray-800">
-              <div className="w-2 h-2 bg-[#1D3B32] rounded-full"></div>
-              <span className="font-medium">Trekking interpretativo</span>
-            </div>
-            <div className="flex items-center space-x-3 text-gray-800">
-              <div className="w-2 h-2 bg-[#1D3B32] rounded-full"></div>
-              <span className="font-medium">Avistaje de aves</span>
-            </div>
+            {[
+              "Kayak guiado",
+              "Trekking interpretativo",
+              "Avistaje de aves",
+            ].map((actividad) => (
+              <div
+                key={actividad}
+                className="flex items-center space-x-3 text-gray-800"
+              >
+                <div className="w-2 h-2 bg-[#1D3B32] rounded-full" />
+                <span className="font-medium">{actividad}</span>
+              </div>
+            ))}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <button className="bg-[#1D3B32] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2a554a] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center">
+            <button
+              type="button"
+              className="bg-[#1D3B32] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2a554a] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center"
+            >
               <span>Reservá tu lugar</span>
               <svg
                 className="w-5 h-5 ml-2"
@@ -52,13 +57,17 @@ export default function Reservations() {
                 />
               </svg>
             </button>
-            <button className="border-2 border-[#1D3B32] text-[#1D3B32] px-8 py-4 rounded-lg font-semibold hover:bg-[#1D3B32] hover:text-white transition-all duration-300 flex items-center justify-center">
+
+            <button
+              type="button"
+              className="border-2 border-[#1D3B32] text-[#1D3B32] px-8 py-4 rounded-lg font-semibold hover:bg-[#1D3B32] hover:text-white transition-all duration-300 flex items-center justify-center"
+            >
               <span>Consultar disponibilidad</span>
             </button>
           </div>
         </div>
 
-        {/* Image */}
+        {/* Imagen principal */}
         <div className="relative">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
             <img
@@ -66,14 +75,16 @@ export default function Reservations() {
               alt="Reserva natural"
               className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#1D3B32]/10 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#1D3B32]/10 to-transparent" />
           </div>
 
-          {/* Decorative elements */}
-          <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#1D3B32]/10 rounded-full"></div>
-          <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#1D3B32]/5 rounded-full"></div>
+          {/* Elementos decorativos */}
+          <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#1D3B32]/10 rounded-full" />
+          <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#1D3B32]/5 rounded-full" />
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Reservations;

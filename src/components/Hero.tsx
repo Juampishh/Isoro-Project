@@ -1,9 +1,9 @@
+// Hero.tsx
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
-export default function Hero() {
-  // Animaciones para el contenedor principal
-  const containerVariants = {
+const Hero: React.FC = () => {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -14,104 +14,67 @@ export default function Hero() {
     },
   };
 
-  // Animaciones para los elementos hijos
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
-  // Animación específica para el título principal
-  const titleVariants = {
+  const titleVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 1,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
+      transition: { duration: 1, ease: [0.25, 0.46, 0.45, 0.94] },
     },
   };
 
-  // Animación para el badge "EXPERIENCIA"
-  const badgeVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.8,
-      rotateX: 90,
-    },
+  const badgeVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8, rotateX: 90 },
     visible: {
       opacity: 1,
       scale: 1,
       rotateX: 0,
-      transition: {
-        duration: 0.8,
-        delay: 0.5,
-        ease: "backOut",
-      },
+      transition: { duration: 0.8, delay: 0.5, ease: "backOut" },
     },
     hover: {
       scale: 1.05,
       rotateY: 5,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-      },
+      transition: { duration: 0.3, ease: "easeInOut" },
     },
   };
 
-  // Animación para los botones
-  const buttonVariants = {
+  const buttonVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.8,
-      },
+      transition: { duration: 0.6, delay: 0.8 },
     },
     hover: {
       scale: 1.05,
-      transition: {
-        duration: 0.2,
-        ease: "easeInOut",
-      },
+      transition: { duration: 0.2, ease: "easeInOut" },
     },
-    tap: {
-      scale: 0.98,
-    },
+    tap: { scale: 0.98 },
   };
 
-  // Animación para la imagen de fondo
-  const backgroundVariants = {
+  const backgroundVariants: Variants = {
     hidden: { scale: 1.1, opacity: 0 },
     visible: {
       scale: 1,
       opacity: 1,
-      transition: {
-        duration: 1.5,
-        ease: "easeOut",
-      },
+      transition: { duration: 1.5, ease: "easeOut" },
     },
   };
 
-  // Animación para el overlay oscuro
-  const overlayVariants = {
+  const overlayVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 1.2,
-        ease: "easeOut",
-      },
+      transition: { duration: 1.2, ease: "easeOut" },
     },
   };
 
@@ -129,12 +92,14 @@ export default function Hero() {
           alt="Hero"
           className="w-full h-full object-cover"
         />
-        {/* Overlay oscuro mejorado */}
+
+        {/* Overlay oscuro principal */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"
           variants={overlayVariants}
         />
-        {/* Overlay adicional para más contraste */}
+
+        {/* Overlay adicional para profundidad */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/30"
           variants={overlayVariants}
@@ -199,6 +164,7 @@ export default function Hero() {
           >
             Reservá ahora
           </motion.button>
+
           <motion.button
             className="bg-white/10 text-white px-6 py-4 rounded-lg font-semibold text-lg border border-white/20 backdrop-blur-sm"
             variants={buttonVariants}
@@ -213,23 +179,18 @@ export default function Hero() {
           </motion.button>
         </motion.div>
 
-        {/* Elemento decorativo animado */}
+        {/* Flecha animada */}
         <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0, y: 20 }}
           animate={{
             opacity: 1,
             y: 0,
-            transition: {
-              delay: 1.5,
-              duration: 0.8,
-            },
+            transition: { delay: 1.5, duration: 0.8 },
           }}
         >
           <motion.div
-            animate={{
-              y: [0, 10, 0],
-            }}
+            animate={{ y: [0, 10, 0] }}
             transition={{
               duration: 2,
               repeat: Infinity,
@@ -255,4 +216,6 @@ export default function Hero() {
       </motion.div>
     </section>
   );
-}
+};
+
+export default Hero;

@@ -1,6 +1,13 @@
+// Activities.tsx
 import React from "react";
 
-function Card({ img, title, desc }) {
+interface CardProps {
+  img: string;
+  title: string;
+  desc: string;
+}
+
+const Card: React.FC<CardProps> = ({ img, title, desc }) => {
   return (
     <div className="bg-white/5 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
       <div className="relative overflow-hidden">
@@ -9,7 +16,7 @@ function Card({ img, title, desc }) {
           alt={title}
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0  from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-[#1D3B32] mb-3 group-hover:text-[#2a554a] transition-colors duration-300">
@@ -35,9 +42,9 @@ function Card({ img, title, desc }) {
       </div>
     </div>
   );
-}
+};
 
-export default function Activities() {
+const Activities: React.FC = () => {
   return (
     <section id="actividades" className="max-w-7xl mx-auto px-6 py-20">
       <div className="text-center mb-12">
@@ -68,10 +75,12 @@ export default function Activities() {
       </div>
 
       <div className="text-center mt-12">
-        <button className="bg-[#1D3B32] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#2a554a] transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-transform duration-300">
+        <button className="bg-[#1D3B32] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#2a554a]  shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-transform duration-300">
           Ver todas las actividades
         </button>
       </div>
     </section>
   );
-}
+};
+
+export default Activities;

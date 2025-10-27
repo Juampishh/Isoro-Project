@@ -1,22 +1,26 @@
+// WelcomeScreen.tsx
+import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-export default function WelcomeScreen() {
+const WelcomeScreen: React.FC = () => {
   const navigate = useNavigate();
+
   return (
     <div className="relative w-full h-screen flex items-center justify-center bg-[#f4e5db] overflow-hidden">
       {/* Imagen de fondo centrada */}
       <img
-        src="/fondo.png" // asegúrate de que esté en /public
+        src="/fondo.png" // debe estar en /public
         alt="Isoró"
         className="absolute inset-0 w-full h-full object-contain"
       />
 
-      {/* Capa semitransparente opcional para mejorar contraste del botón */}
+      {/* Capa semitransparente para contraste */}
       <div className="absolute inset-0 bg-[#f4e5db]/20" />
 
-      {/* Botón sobre la imagen */}
+      {/* Botón principal animado */}
       <motion.button
+        type="button"
         whileHover={{ scale: 1.05, backgroundColor: "#ff9335" }}
         whileTap={{ scale: 0.95 }}
         onClick={() => navigate("/")}
@@ -26,4 +30,6 @@ export default function WelcomeScreen() {
       </motion.button>
     </div>
   );
-}
+};
+
+export default WelcomeScreen;

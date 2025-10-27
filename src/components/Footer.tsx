@@ -1,8 +1,9 @@
+// Footer.tsx
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
-export default function Footer() {
-  const footerVariants = {
+const Footer: React.FC = () => {
+  const footerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -14,7 +15,7 @@ export default function Footer() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
@@ -27,7 +28,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white/5  text-black ">
+    <footer className="bg-white/5 text-black">
       <motion.div
         className="max-w-7xl mx-auto px-6 py-16"
         initial="hidden"
@@ -45,12 +46,13 @@ export default function Footer() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
-            <p className="max-w-md  leading-relaxed mb-6">
+            <p className="max-w-md leading-relaxed mb-6">
               Reserva Natural Arroyo Isoró — Viví la experiencia única de
               conectar con la naturaleza en uno de los rincones más valiosos del
               litoral.
             </p>
             <div className="flex space-x-4">
+              {/* Facebook */}
               <motion.a
                 href="#"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
@@ -66,6 +68,8 @@ export default function Footer() {
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </motion.a>
+
+              {/* Instagram */}
               <motion.a
                 href="#"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
@@ -81,6 +85,8 @@ export default function Footer() {
                   <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.647.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.201 14.815 3.71 13.664 3.71 12.367s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297z" />
                 </svg>
               </motion.a>
+
+              {/* WhatsApp */}
               <motion.a
                 href="#"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
@@ -119,11 +125,12 @@ export default function Footer() {
                 </svg>
                 <a
                   href="mailto:info@isoro.example"
-                  className=" hover:text-white transition-colors duration-300"
+                  className="hover:text-white transition-colors duration-300"
                 >
                   info@isoro.example
                 </a>
               </div>
+
               <div className="flex items-start space-x-3">
                 <svg
                   className="w-5 h-5 text-white/70 mt-0.5"
@@ -140,11 +147,12 @@ export default function Footer() {
                 </svg>
                 <a
                   href="tel:+54912345678"
-                  className=" hover:text-white transition-colors duration-300"
+                  className="hover:text-white transition-colors duration-300"
                 >
                   +54 9 1234 5678
                 </a>
               </div>
+
               <div className="flex items-start space-x-3">
                 <svg
                   className="w-5 h-5 text-white/70 mt-0.5"
@@ -165,7 +173,7 @@ export default function Footer() {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span className="">
+                <span>
                   Goya, Corrientes
                   <br />
                   Argentina
@@ -180,34 +188,21 @@ export default function Footer() {
               Enlaces rápidos
             </h4>
             <nav className="space-y-3">
-              <motion.a
-                href="#actividades"
-                className="block  hover:text-white transition-colors duration-300"
-                whileHover={{ x: 5 }}
-              >
-                Actividades
-              </motion.a>
-              <motion.a
-                href="#reservas"
-                className="block  hover:text-white transition-colors duration-300"
-                whileHover={{ x: 5 }}
-              >
-                Reservas
-              </motion.a>
-              <motion.a
-                href="#"
-                className="block  hover:text-white transition-colors duration-300"
-                whileHover={{ x: 5 }}
-              >
-                Galería
-              </motion.a>
-              <motion.a
-                href="#"
-                className="block  hover:text-white transition-colors duration-300"
-                whileHover={{ x: 5 }}
-              >
-                Preguntas frecuentes
-              </motion.a>
+              {[
+                { label: "Actividades", href: "#actividades" },
+                { label: "Reservas", href: "#reservas" },
+                { label: "Galería", href: "#" },
+                { label: "Preguntas frecuentes", href: "#" },
+              ].map(({ label, href }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  className="block hover:text-white transition-colors duration-300"
+                  whileHover={{ x: 5 }}
+                >
+                  {label}
+                </motion.a>
+              ))}
             </nav>
           </motion.div>
         </div>
@@ -222,7 +217,7 @@ export default function Footer() {
         transition={{ delay: 0.3 }}
       >
         <div className="max-w-7xl mx-auto px-6">
-          <p className=" text-sm">
+          <p className="text-sm">
             © 2025 Isoró - Reserva Natural Arroyo Isoró. Todos los derechos
             reservados.
           </p>
@@ -230,4 +225,6 @@ export default function Footer() {
       </motion.div>
     </footer>
   );
-}
+};
+
+export default Footer;
