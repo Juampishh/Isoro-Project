@@ -30,7 +30,7 @@ export default function Home() {
               <input
                 placeholder="Busca aquí"
                 className="outline-none text-sm flex-1"
-              />
+              />c
             </div>
             <button className="flex gap-3 bg-[#1c3e35] text-white font-semibold px-4 py-3 rounded-full">
               <FaPhoneVolume className="mt-1.5" /> Contacto
