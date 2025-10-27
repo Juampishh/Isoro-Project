@@ -63,12 +63,12 @@ const Activities: React.FC = () => {
           desc="Navegaciones guiadas para todos los niveles. Explora paisajes increíbles con instructores certificados."
         />
         <Card
-          img="/single_kayak.jpg"
+          img="/trecking.jpeg"
           title="Trekking y Senderos"
           desc="Caminatas interpretativas por la reserva. Conoce la flora y fauna local con guías especializados."
         />
         <Card
-          img="/birdwatch.jpg"
+          img="/single_kayak.jpg"
           title="Avistaje"
           desc="Observación de aves y fauna local. Equipos especializados y guías expertos en biodiversidad."
         />
